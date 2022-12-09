@@ -3,3 +3,4 @@ puyblic_system
 imports
 elasticsearch
 db_dumps
+logs

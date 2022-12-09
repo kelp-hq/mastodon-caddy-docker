@@ -73,8 +73,7 @@ services:
       - redis
       - es
     volumes:
-      - ./public_system:/mastodon/public/system
-      - ./web_config:/opt/web_config
+      - public_system:/mastodon/public/system
 
   streaming:
     image: tootsuite/mastodon
@@ -108,7 +107,7 @@ services:
       - external_network
       - internal_network
     volumes:
-      - ./public_system:/mastodon/public/system
+      - public_system:/mastodon/public/system
     healthcheck:
       test: ['CMD-SHELL', "ps aux | grep '[s]idekiq\ 6' || false"]
 
