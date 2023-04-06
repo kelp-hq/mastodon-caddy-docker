@@ -103,15 +103,22 @@ The backup script requires following env variables to be set:
 - `BACKUP_AWS_ACCESS_KEY_ID` -- minio or aws access key
 - `BACKUP_AWS_SECRET_ACCESS_KEY` -- minio or aws secret key
 - `DB_PASS` -- postgresql password
-- `DB_USER` -- postgresql usename
-
+- `DB_USER` -- postgresql username
 
 Cronjob is set to run this once a day at [midnight](https://cron.help/every-day-at-midnight):
 
 ```sh
-
+# this doesn't work, need to expose the secrets!
 sudo crontab -e
-
 0 0 * * * /path/where/is/the/backup-and-upload.sh
 
 ```
+
+
+## Migration to new server
+
+Follow the official tutorial from [here](https://docs.joinmastodon.org/admin/migrating/) then once you restore DB run this `docker-compose run --rm  web bundle exec rails db:migrate` 
+
+## Resources
+
+- https://ricard.dev/improving-mastodons-disk-usage/
